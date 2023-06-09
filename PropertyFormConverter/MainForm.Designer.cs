@@ -62,7 +62,7 @@
             ckNumbering.AutoSize = true;
             ckNumbering.Checked = true;
             ckNumbering.CheckState = CheckState.Checked;
-            ckNumbering.Location = new Point(21, 394);
+            ckNumbering.Location = new Point(21, 460);
             ckNumbering.Margin = new Padding(4);
             ckNumbering.Name = "ckNumbering";
             ckNumbering.Size = new Size(135, 19);
@@ -81,6 +81,7 @@
             rbOther.TabStop = true;
             rbOther.Text = "その他の財産";
             rbOther.UseVisualStyleBackColor = true;
+            rbOther.CheckedChanged += rbOther_CheckedChanged;
             // 
             // rbFixtures
             // 
@@ -93,6 +94,7 @@
             rbFixtures.TabStop = true;
             rbFixtures.Text = "什器備品";
             rbFixtures.UseVisualStyleBackColor = true;
+            rbFixtures.CheckedChanged += rbFixtures_CheckedChanged;
             // 
             // rbMachine
             // 
@@ -105,6 +107,7 @@
             rbMachine.TabStop = true;
             rbMachine.Text = "機械・工具類";
             rbMachine.UseVisualStyleBackColor = true;
+            rbMachine.CheckedChanged += rbMachine_CheckedChanged;
             // 
             // rbStock
             // 
@@ -117,6 +120,7 @@
             rbStock.TabStop = true;
             rbStock.Text = "在庫商品";
             rbStock.UseVisualStyleBackColor = true;
+            rbStock.CheckedChanged += rbStock_CheckedChanged;
             // 
             // rbLoan
             // 
@@ -129,6 +133,7 @@
             rbLoan.TabStop = true;
             rbLoan.Text = "貸付金";
             rbLoan.UseVisualStyleBackColor = true;
+            rbLoan.CheckedChanged += rbLoan_CheckedChanged;
             // 
             // rbReceivable
             // 
@@ -141,6 +146,7 @@
             rbReceivable.TabStop = true;
             rbReceivable.Text = "売掛金";
             rbReceivable.UseVisualStyleBackColor = true;
+            rbReceivable.CheckedChanged += rbReceivable_CheckedChanged;
             // 
             // lblProcedure
             // 
@@ -148,9 +154,8 @@
             lblProcedure.Location = new Point(8, 19);
             lblProcedure.Margin = new Padding(4, 0, 4, 0);
             lblProcedure.Name = "lblProcedure";
-            lblProcedure.Size = new Size(399, 99);
+            lblProcedure.Size = new Size(399, 150);
             lblProcedure.TabIndex = 18;
-            lblProcedure.Text = "預貯金・積立金目録（申立用）のデータのうち、「金融機関…の名称」列から「回収見込額」列までを選択してコピーし（Ctrl+C）、「実行」ボタンを押してください。\r\n個人の破産者の場合、「自由財産拡張申立」列まで選択してコピーすることも可能です。\r\n\r\n複数列を選択することもできます。";
             // 
             // groupBox1
             // 
@@ -189,6 +194,7 @@
             rbBank.TabStop = true;
             rbBank.Text = "預貯金・積立金";
             rbBank.UseVisualStyleBackColor = true;
+            rbBank.CheckedChanged += rbBank_CheckedChanged;
             // 
             // rbInsurance
             // 
@@ -201,6 +207,7 @@
             rbInsurance.TabStop = true;
             rbInsurance.Text = "保険";
             rbInsurance.UseVisualStyleBackColor = true;
+            rbInsurance.CheckedChanged += rbInsurance_CheckedChanged;
             // 
             // rbCar
             // 
@@ -213,6 +220,7 @@
             rbCar.TabStop = true;
             rbCar.Text = "自動車";
             rbCar.UseVisualStyleBackColor = true;
+            rbCar.CheckedChanged += rbCar_CheckedChanged;
             // 
             // rbCheck
             // 
@@ -225,6 +233,7 @@
             rbCheck.TabStop = true;
             rbCheck.Text = "手形・小切手";
             rbCheck.UseVisualStyleBackColor = true;
+            rbCheck.CheckedChanged += rbCheck_CheckedChanged;
             // 
             // rbDeposit
             // 
@@ -237,6 +246,7 @@
             rbDeposit.TabStop = true;
             rbDeposit.Text = "賃借保証金・敷金";
             rbDeposit.UseVisualStyleBackColor = true;
+            rbDeposit.CheckedChanged += rbDeposit_CheckedChanged;
             // 
             // rbSecurities
             // 
@@ -249,6 +259,7 @@
             rbSecurities.TabStop = true;
             rbSecurities.Text = "有価証券";
             rbSecurities.UseVisualStyleBackColor = true;
+            rbSecurities.CheckedChanged += rbSecurities_CheckedChanged;
             // 
             // rbRetirement
             // 
@@ -261,6 +272,7 @@
             rbRetirement.TabStop = true;
             rbRetirement.Text = "退職金";
             rbRetirement.UseVisualStyleBackColor = true;
+            rbRetirement.CheckedChanged += rbRetirement_CheckedChanged;
             // 
             // rbRealestate
             // 
@@ -273,6 +285,7 @@
             rbRealestate.TabStop = true;
             rbRealestate.Text = "不動産";
             rbRealestate.UseVisualStyleBackColor = true;
+            rbRealestate.CheckedChanged += rbRealestate_CheckedChanged;
             // 
             // rbOverpayment
             // 
@@ -285,10 +298,11 @@
             rbOverpayment.TabStop = true;
             rbOverpayment.Text = "過払金";
             rbOverpayment.UseVisualStyleBackColor = true;
+            rbOverpayment.CheckedChanged += rbOverpayment_CheckedChanged;
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(319, 385);
+            btnCancel.Location = new Point(319, 451);
             btnCancel.Margin = new Padding(4);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(108, 35);
@@ -299,7 +313,7 @@
             // 
             // btnExec
             // 
-            btnExec.Location = new Point(202, 385);
+            btnExec.Location = new Point(202, 451);
             btnExec.Margin = new Padding(4);
             btnExec.Name = "btnExec";
             btnExec.Size = new Size(111, 35);
@@ -313,7 +327,7 @@
             groupBox2.Controls.Add(lblProcedure);
             groupBox2.Location = new Point(13, 180);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(414, 130);
+            groupBox2.Size = new Size(414, 180);
             groupBox2.TabIndex = 20;
             groupBox2.TabStop = false;
             groupBox2.Text = "操作手順";
@@ -321,9 +335,9 @@
             // groupBox3
             // 
             groupBox3.Controls.Add(lblResult);
-            groupBox3.Location = new Point(13, 316);
+            groupBox3.Location = new Point(13, 366);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(414, 59);
+            groupBox3.Size = new Size(414, 78);
             groupBox3.TabIndex = 21;
             groupBox3.TabStop = false;
             groupBox3.Text = "結果";
@@ -334,14 +348,14 @@
             lblResult.Location = new Point(8, 19);
             lblResult.Margin = new Padding(4, 0, 4, 0);
             lblResult.Name = "lblResult";
-            lblResult.Size = new Size(399, 33);
+            lblResult.Size = new Size(399, 56);
             lblResult.TabIndex = 18;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(441, 429);
+            ClientSize = new Size(441, 495);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(ckNumbering);
@@ -351,7 +365,6 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MainForm";
             Text = "クリップボードにコピーしたデータの成形";
-            // Load += Form1_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
