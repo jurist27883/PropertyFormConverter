@@ -29,7 +29,7 @@ namespace PropertyFormConverter
                     branch.Substring(Math.Max(branch.Length - 3, 0)) == "営業部" ||
                     branch.Substring(Math.Max(branch.Length - 2, 0)) == "支店"))
                 {
-                    branch = branch + "支店";
+                    branch += "支店";
                 }
                 line1 = line1 + " " + branch;
             }

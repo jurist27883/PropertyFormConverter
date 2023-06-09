@@ -4,11 +4,15 @@ namespace PropertyFormConverter
 {
     public partial class MainForm : Form
     {
-        public MainForm()
+        public MainForm(string resultText)
+        //public MainForm()
         {
             InitializeComponent();
             rbBank.Checked = true;
+            lblResult.Text = resultText;
         }
+
+        public string Result { get; set; } = "";
 
         private async void btnExec_Click(object sender, EventArgs e)
         {
@@ -47,14 +51,13 @@ namespace PropertyFormConverter
             
             assets.Convert(clipboardText, ckNumbering.Checked);
 
-            if (assets.isSucceed)
+            if (assets.IsSucceed)
             {
-                lblResult.Text = "";
-                await Task.Delay(100);
-                lblResult.Text = "成形を実行しました。\n"
+                //Excelのコピー状態を解除するため再起動
+                var resultText = "成形を実行しました。\n"
                     + "管財用の財産目録の適宜の場所にCtrl+Vで貼り付けてください。";
-                Application.Restart(); //Excelのコピー状態を解除するため
-
+                System.Diagnostics.Process.Start(Application.ExecutablePath,resultText);
+                Application.Exit();
             }
             else
             {

@@ -14,7 +14,7 @@ namespace PropertyFormConverter
         public virtual int Volume { get; } = 1;
         public virtual int Value { get; }=4;
         public virtual int FreeProperty { get; }=6;
-        public bool isSucceed { get; protected set; }
+        public bool IsSucceed { get; protected set; }
 
         public virtual void Convert(string source,bool hasNumber)
         {
@@ -22,7 +22,7 @@ namespace PropertyFormConverter
             var clipboardText = Clipboard.GetText();
             if (string.IsNullOrEmpty(clipboardText))
             {
-                isSucceed = false;  
+                IsSucceed = false;  
                 return;
             }
 
@@ -67,7 +67,7 @@ namespace PropertyFormConverter
 
             //クリップボードにコピー
             Clipboard.SetText(result);
-            isSucceed = true;
+            IsSucceed = true;
             
         }
 
