@@ -5,7 +5,6 @@ namespace PropertyFormConverter
     public partial class MainForm : Form
     {
         public MainForm(string resultText)
-        //public MainForm()
         {
             InitializeComponent();
             rbBank.Checked = true;

@@ -11,5 +11,7 @@ namespace PropertyFormConverter
         public override int Value { get; } = 3;
         public override int FreeProperty { get; } = 7;
 
+        public override string Remarks { get; } = "組入放棄予定";
+
     }
 }

@@ -25,9 +25,9 @@ namespace PropertyFormConverter
             if (values.Length > Branch)
             {
                 var branch = values[Branch];
-                if (!(branch == "" || branch.Substring(Math.Max(branch.Length - 2, 0)) == "本店" ||
-                    branch.Substring(Math.Max(branch.Length - 3, 0)) == "営業部" ||
-                    branch.Substring(Math.Max(branch.Length - 2, 0)) == "支店"))
+                if (!(branch == "" || branch[Math.Max(branch.Length - 2, 0)..] == "本店" ||
+                    branch[Math.Max(branch.Length - 3, 0)..] == "営業部" ||
+                    branch[Math.Max(branch.Length - 2, 0)..] == "支店"))
                 {
                     branch += "支店";
                 }
@@ -55,7 +55,11 @@ namespace PropertyFormConverter
                         values[Value] = "0";
                 }
                 else
+                {
+                    if(remarks != "相殺見込み")
+                        remarks = "解約予定";
                     freePropertyValue = "-";
+                }
             }
 
             //評価額・回収額

@@ -14,6 +14,7 @@ namespace PropertyFormConverter
         public virtual int Volume { get; } = 1;
         public virtual int Value { get; }=4;
         public virtual int FreeProperty { get; }=6;
+        public virtual string Remarks { get; } = "換価予定";
         public bool IsSucceed { get; protected set; }
 
         public virtual void Convert(string source,bool hasNumber)
@@ -52,7 +53,7 @@ namespace PropertyFormConverter
                 if (hasNumber)
                 {
                     if (no <= 30)
-                        line1 = numbers.Substring(no - 1, 1) + "\t" + line1;
+                        line1 = string.Concat(numbers.AsSpan(no - 1, 1), "\t", line1);
                     else
                         line1 = "○\t" + line1;
                     
@@ -85,7 +86,9 @@ namespace PropertyFormConverter
                 }
                 else
                 {
-                    line1 += values[Value] + "\t0";
+                    line1 += values[Value] + "\t0\t" + Remarks + "\t■\t"
+                        + "=IF(indirect(address(row(),column()-1))=\"□\",\"■\",\"□\")"
+                        + "\t-";
                 }
             }
             return line1;

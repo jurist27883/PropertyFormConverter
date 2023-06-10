@@ -10,6 +10,7 @@ namespace PropertyFormConverter
     {
         public override int Value { get; } = 5;
         public override int FreeProperty { get; } = 8;
+        public override string Remarks { get; } = "請求予定";
         public override string ArrangeLine2(string[] values)
         {
             return "";

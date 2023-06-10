@@ -11,6 +11,7 @@ namespace PropertyFormConverter
         public override int FreeProperty { get; } = 7;
         int Type { get; } = 1;
         int Number { get; } = 2;
+        public override string Remarks { get; } = "解約予定";
 
         public override string ArrangeLine1(string[] values)
         {
@@ -26,7 +27,9 @@ namespace PropertyFormConverter
                 }
                 else
                 {
-                    line1 += values[Value] + "\t0";
+                    line1 += values[Value] + "\t0\t" + Remarks + "\t■\t"
+                        + "=IF(indirect(address(row(),column()-1))=\"□\",\"■\",\"□\")"
+                        + "\t-";
                 }
             }
             return line1;
