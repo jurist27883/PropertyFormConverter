@@ -12,11 +12,11 @@ namespace PropertyFormConverter
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
-            var resultText = "";
-            if (args.Length > 0)
-                resultText = args[0];
+            var resultText = (args.Length > 0) ? args[0] : "";
+            var checkedRadioButtonName = (args.Length > 1) ? args[1] : "";
+            var checkBoxState = (args.Length > 2) ? args[2] : "true";
 
-            Application.Run(new MainForm(resultText));
+            Application.Run(new MainForm(resultText,checkedRadioButtonName,checkBoxState));
 
         }
     }

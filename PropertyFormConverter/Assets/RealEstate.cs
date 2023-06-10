@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PropertyFormConverter
+namespace PropertyFormConverter.Assets
 {
-    internal class RealEstate : Assets
+    internal class RealEstate : Asset
     {
 
         public override int Value { get; } = 5;

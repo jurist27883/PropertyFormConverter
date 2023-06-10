@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PropertyFormConverter
+namespace PropertyFormConverter.Assets
 {
-    internal class Claim : Assets
+    internal class Claim : Asset
     {
         public override int Value { get; } = 5;
         public override int FreeProperty { get; } = 8;

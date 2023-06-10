@@ -6,24 +6,24 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Windows.Forms.LinkLabel;
 
-namespace PropertyFormConverter
+namespace PropertyFormConverter.Assets
 {
-    internal abstract class Assets
+    internal abstract class Asset
     {
-        public virtual int Name { get; }=0; 
+        public virtual int Name { get; } = 0;
         public virtual int Volume { get; } = 1;
-        public virtual int Value { get; }=4;
-        public virtual int FreeProperty { get; }=6;
+        public virtual int Value { get; } = 4;
+        public virtual int FreeProperty { get; } = 6;
         public virtual string Remarks { get; } = "換価予定";
         public bool IsSucceed { get; protected set; }
 
-        public virtual void Convert(string source,bool hasNumber)
+        public virtual void Convert(string source, bool hasNumber)
         {
             //クリップボードからコピー
             var clipboardText = Clipboard.GetText();
             if (string.IsNullOrEmpty(clipboardText))
             {
-                IsSucceed = false;  
+                IsSucceed = false;
                 return;
             }
 
@@ -48,7 +48,7 @@ namespace PropertyFormConverter
 
                 //2行目
                 var line2 = ArrangeLine2(values);
-                
+
                 //冒頭ナンバリング付加
                 if (hasNumber)
                 {
@@ -56,7 +56,7 @@ namespace PropertyFormConverter
                         line1 = string.Concat(numbers.AsSpan(no - 1, 1), "\t", line1);
                     else
                         line1 = "○\t" + line1;
-                    
+
                     line2 = "\t" + line2;
                 }
 
@@ -69,7 +69,7 @@ namespace PropertyFormConverter
             //クリップボードにコピー
             Clipboard.SetText(result);
             IsSucceed = true;
-            
+
         }
 
         public virtual string ArrangeLine1(string[] values)

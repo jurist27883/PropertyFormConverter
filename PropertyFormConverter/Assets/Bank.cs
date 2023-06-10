@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Windows.Forms.LinkLabel;
 
-namespace PropertyFormConverter
+namespace PropertyFormConverter.Assets
 {
-    internal class Bank : Assets
+    internal class Bank : Asset
     {
         public override int Value { get; } = 6;
         public override int FreeProperty { get; } = 9;
@@ -19,8 +19,8 @@ namespace PropertyFormConverter
 
         public override string ArrangeLine1(string[] values)
         {
-            var line1 = values[Name] ;
-            
+            var line1 = values[Name];
+
             //支店
             if (values.Length > Branch)
             {
@@ -56,7 +56,7 @@ namespace PropertyFormConverter
                 }
                 else
                 {
-                    if(remarks != "相殺見込み")
+                    if (remarks != "相殺見込み")
                         remarks = "解約予定";
                     freePropertyValue = "-";
                 }
@@ -89,7 +89,7 @@ namespace PropertyFormConverter
             if (values.Length > Number)
                 line2 += values[Number];
 
-                return line2;
+            return line2;
         }
     }
 }

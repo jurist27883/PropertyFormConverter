@@ -4,19 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PropertyFormConverter
+namespace PropertyFormConverter.Assets
 {
-    internal class Insurance : Assets
+    internal class Securities : Asset
     {
-        public override int FreeProperty { get; } = 7;
-        int Type { get; } = 1;
+        public override int Value { get; } = 6;
+        public override int FreeProperty { get; } = 9;
         int Number { get; } = 2;
-        public override string Remarks { get; } = "解約予定";
 
         public override string ArrangeLine1(string[] values)
         {
-            var line1 = values[Type] + "(" + values[Name] + ")\t";
-            
+            var line1 = values[Name];
+            if (values.Length > Number)
+            {
+                line1 += "(" + values[Number] + ")";
+            }
+            line1 += "\t";
+
             if (values.Length > FreeProperty)
             {
                 if (values[FreeProperty] == "■")
@@ -27,17 +31,15 @@ namespace PropertyFormConverter
                 }
                 else
                 {
-                    line1 += values[Value] + "\t0\t" + Remarks + "\t■\t"
-                        + "=IF(indirect(address(row(),column()-1))=\"□\",\"■\",\"□\")"
-                        + "\t-";
+                    line1 += values[Value] + "\t0";
                 }
             }
             return line1;
         }
         public override string ArrangeLine2(string[] values)
         {
-            if (values.Length > Number && !string.IsNullOrEmpty(values[Number]))
-                return values[Number];
+            if (values.Length > Volume && !string.IsNullOrEmpty(values[Volume]))
+                return values[Volume];
             else
                 return "";
         }

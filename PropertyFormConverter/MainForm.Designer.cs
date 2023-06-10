@@ -37,7 +37,7 @@
             rbLoan = new RadioButton();
             rbReceivable = new RadioButton();
             lblProcedure = new Label();
-            groupBox1 = new GroupBox();
+            grCopiedDataType = new GroupBox();
             rbBank = new RadioButton();
             rbInsurance = new RadioButton();
             rbCar = new RadioButton();
@@ -52,7 +52,7 @@
             groupBox2 = new GroupBox();
             groupBox3 = new GroupBox();
             lblResult = new Label();
-            groupBox1.SuspendLayout();
+            grCopiedDataType.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
             SuspendLayout();
@@ -157,31 +157,31 @@
             lblProcedure.Size = new Size(399, 150);
             lblProcedure.TabIndex = 18;
             // 
-            // groupBox1
+            // grCopiedDataType
             // 
-            groupBox1.Controls.Add(rbOther);
-            groupBox1.Controls.Add(rbFixtures);
-            groupBox1.Controls.Add(rbMachine);
-            groupBox1.Controls.Add(rbStock);
-            groupBox1.Controls.Add(rbLoan);
-            groupBox1.Controls.Add(rbReceivable);
-            groupBox1.Controls.Add(rbBank);
-            groupBox1.Controls.Add(rbInsurance);
-            groupBox1.Controls.Add(rbCar);
-            groupBox1.Controls.Add(rbCheck);
-            groupBox1.Controls.Add(rbDeposit);
-            groupBox1.Controls.Add(rbSecurities);
-            groupBox1.Controls.Add(rbRetirement);
-            groupBox1.Controls.Add(rbRealestate);
-            groupBox1.Controls.Add(rbOverpayment);
-            groupBox1.Location = new Point(13, 13);
-            groupBox1.Margin = new Padding(4);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(4);
-            groupBox1.Size = new Size(414, 160);
-            groupBox1.TabIndex = 17;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "コピーしたデータの種類";
+            grCopiedDataType.Controls.Add(rbOther);
+            grCopiedDataType.Controls.Add(rbFixtures);
+            grCopiedDataType.Controls.Add(rbMachine);
+            grCopiedDataType.Controls.Add(rbStock);
+            grCopiedDataType.Controls.Add(rbLoan);
+            grCopiedDataType.Controls.Add(rbReceivable);
+            grCopiedDataType.Controls.Add(rbBank);
+            grCopiedDataType.Controls.Add(rbInsurance);
+            grCopiedDataType.Controls.Add(rbCar);
+            grCopiedDataType.Controls.Add(rbCheck);
+            grCopiedDataType.Controls.Add(rbDeposit);
+            grCopiedDataType.Controls.Add(rbSecurities);
+            grCopiedDataType.Controls.Add(rbRetirement);
+            grCopiedDataType.Controls.Add(rbRealestate);
+            grCopiedDataType.Controls.Add(rbOverpayment);
+            grCopiedDataType.Location = new Point(13, 13);
+            grCopiedDataType.Margin = new Padding(4);
+            grCopiedDataType.Name = "grCopiedDataType";
+            grCopiedDataType.Padding = new Padding(4);
+            grCopiedDataType.Size = new Size(414, 160);
+            grCopiedDataType.TabIndex = 17;
+            grCopiedDataType.TabStop = false;
+            grCopiedDataType.Text = "コピーしたデータの種類";
             // 
             // rbBank
             // 
@@ -359,14 +359,14 @@
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(ckNumbering);
-            Controls.Add(groupBox1);
+            Controls.Add(grCopiedDataType);
             Controls.Add(btnCancel);
             Controls.Add(btnExec);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MainForm";
             Text = "クリップボードにコピーしたデータの成形";
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            grCopiedDataType.ResumeLayout(false);
+            grCopiedDataType.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox3.ResumeLayout(false);
             ResumeLayout(false);
@@ -383,7 +383,7 @@
         private RadioButton rbLoan;
         private RadioButton rbReceivable;
         private Label lblProcedure;
-        private GroupBox groupBox1;
+        private GroupBox grCopiedDataType;
         private RadioButton rbBank;
         private RadioButton rbInsurance;
         private RadioButton rbCar;
