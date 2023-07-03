@@ -17,20 +17,17 @@ namespace PropertyFormConverter.Assets
         {
             var line1 = values[Type] + "(" + values[Name] + ")\t";
 
-            if (values.Length > FreeProperty)
+            if (values.Length > FreeProperty && values[FreeProperty] == "■")
             {
-                if (values[FreeProperty] == "■")
-                {
-                    line1 += "0\t0\t拡張予定\t■\t"
-                        + "=IF(indirect(address(row(),column()-1))=\"□\",\"■\",\"□\")"
-                        + "\t" + values[Value];
-                }
-                else
-                {
-                    line1 += values[Value] + "\t0\t" + Remarks + "\t■\t"
-                        + "=IF(indirect(address(row(),column()-1))=\"□\",\"■\",\"□\")"
-                        + "\t-";
-                }
+                line1 += "0\t0\t拡張予定\t■\t"
+                    + "=IF(indirect(address(row(),column()-1))=\"□\",\"■\",\"□\")"
+                    + "\t" + values[Value];
+            }
+            else
+            {
+                line1 += values[Value] + "\t0\t" + Remarks + "\t■\t"
+                    + "=IF(indirect(address(row(),column()-1))=\"□\",\"■\",\"□\")"
+                    + "\t-";
             }
             return line1;
         }

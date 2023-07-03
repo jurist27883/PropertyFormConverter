@@ -8,17 +8,18 @@ namespace PropertyFormConverter
         public MainForm(string resultText,string checkedRadioButtonName,string checkBoxState)
         {
             InitializeComponent();
-            rbBank.Checked = true;
-            lblResult.Text = resultText;
+            
             if (checkedRadioButtonName != "")
             {
                 var selectedRadioButton = grCopiedDataType.Controls.OfType<RadioButton>().SingleOrDefault(rb => rb.Name == checkedRadioButtonName);
                 selectedRadioButton.Checked = true;
             }
-            if (checkBoxState != "")
-            {
-                ckNumbering.Checked = (checkBoxState == "true") ? true : false;
-            }
+            else
+                rbBank.Checked = true;
+            
+            lblResult.Text = (resultText == "successed") ? "成形を実行しました。\n管財用の財産目録の適宜の場所にCtrl+Vで貼り付けてください。" : "";
+
+            ckNumbering.Checked = (checkBoxState == "" || checkBoxState == "true") ? true : false;
             
         }
 
@@ -58,8 +59,7 @@ namespace PropertyFormConverter
             if (assets.IsSucceed)
             {
                 //Excelのコピー状態を解除するため再起動
-                var resultText = "成形を実行しました。\n"
-                    + "管財用の財産目録の適宜の場所にCtrl+Vで貼り付けてください。";
+                var resultText = "successed";
                 var checkBoxState = (ckNumbering.Checked) ? "true" : "false";
                 System.Diagnostics.Process.Start(Application.ExecutablePath, resultText + " " + checkedRadioButton.Name + " " +  checkBoxState);
                 Application.Exit();

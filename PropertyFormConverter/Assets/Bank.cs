@@ -45,21 +45,18 @@ namespace PropertyFormConverter.Assets
                 values[Value] = "0";
             }
 
-            if (values.Length > FreeProperty)
+            if (values.Length > FreeProperty && values[FreeProperty] == "■")
             {
-                if (values[FreeProperty] == "■")
-                {
-                    remarks = "拡張予定";
-                    freePropertyValue = values[Value];
-                    if (values.Length > Value)
-                        values[Value] = "0";
-                }
-                else
-                {
-                    if (remarks != "相殺見込み")
-                        remarks = "解約予定";
-                    freePropertyValue = "-";
-                }
+                remarks = "拡張予定";
+                freePropertyValue = values[Value];
+                if (values.Length > Value)
+                    values[Value] = "0";
+            }
+            else
+            {
+                if (remarks != "相殺見込み")
+                    remarks = "解約予定";
+                freePropertyValue = "-";
             }
 
             //評価額・回収額
