@@ -21,16 +21,28 @@ namespace PropertyFormConverter.Assets
             }
             line1 += "\t";
 
-            if (values.Length > FreeProperty && values[FreeProperty] == "■")
+
+            if (values.Length > FreeProperty)
             {
-                line1 += "0\t0\t拡張予定\t■\t"
-                    + "=IF(indirect(address(row(),column()-1))=\"□\",\"■\",\"□\")"
-                    + "\t" + values[Value];
+                if (values[FreeProperty] == "■")
+                {
+                    line1 += "0\t0\t拡張予定\t■\t"
+                        + "=IF(indirect(address(row(),column()-1))=\"□\",\"■\",\"□\")"
+                        + "\t" + values[Value];
+                }
+                else
+                {
+                    line1 += values[Value] + "\t0\t" + Remarks + "\t■\t"
+                        + "=IF(indirect(address(row(),column()-1))=\"□\",\"■\",\"□\")"
+                        + "\t-";
+                }
             }
             else
             {
-                line1 += values[Value] + "\t0";
+                line1 += values[Value] + "\t0\t" + Remarks + "\t■\t"
+                    + "=IF(indirect(address(row(),column()-1))=\"□\",\"■\",\"□\")";
             }
+
             return line1;
         }
         public override string ArrangeLine2(string[] values)

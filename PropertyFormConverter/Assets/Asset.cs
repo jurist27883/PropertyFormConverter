@@ -76,17 +76,25 @@ namespace PropertyFormConverter.Assets
         {
             //1行目整形
             var line1 = values[Name] + "\t";
-            if (values.Length > FreeProperty && values[FreeProperty] == "■")
+            if (values.Length > FreeProperty)
             {
-                line1 += "0\t0\t拡張予定\t■\t"
-                    + "=IF(indirect(address(row(),column()-1))=\"□\",\"■\",\"□\")"
-                    + "\t" + values[Value];
+                if (values[FreeProperty] == "■")
+                {
+                    line1 += "0\t0\t拡張予定\t■\t"
+                        + "=IF(indirect(address(row(),column()-1))=\"□\",\"■\",\"□\")"
+                        + "\t" + values[Value];
+                }
+                else
+                {
+                    line1 += values[Value] + "\t0\t" + Remarks + "\t■\t"
+                        + "=IF(indirect(address(row(),column()-1))=\"□\",\"■\",\"□\")"
+                        + "\t-";
+                }
             }
             else
             {
                 line1 += values[Value] + "\t0\t" + Remarks + "\t■\t"
-                    + "=IF(indirect(address(row(),column()-1))=\"□\",\"■\",\"□\")"
-                    + "\t-";
+                    + "=IF(indirect(address(row(),column()-1))=\"□\",\"■\",\"□\")";
             }
         return line1;
         }
