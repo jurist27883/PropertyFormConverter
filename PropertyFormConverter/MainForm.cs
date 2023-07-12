@@ -44,13 +44,15 @@ namespace PropertyFormConverter
             {
                 "rbBank" => new Bank(),
                 "rbInsurance" => new Insurance(),
-                "rbRealestate" => new RealEstate(),
-                "rbSecurities" => new Securities(),
                 "rbCar" => new Car(), 
                 "rbRetirement" => new Retirement(),
                 "rbOverpayment" => new OverPayment(),
+                "rbRealestate" => new RealEstate(),
+                "rbSecurities" => new Securities(),
                 "rbCheck" => new Check(),
-                _ => new Claim()
+                "rbReceivable" => new Claim(),
+                "rbLoan" => new Claim(),
+                _ => new Other()
             };
 
 
